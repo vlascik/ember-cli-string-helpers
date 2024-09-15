@@ -1,0 +1,114 @@
+{
+  "name": "ember-cli-string-helpers",
+  "version": "6.1.0",
+  "description": "String helpers for Ember",
+  "keywords": [
+    "ember-addon",
+    "helpers"
+  ],
+  "homepage": "https://github.com/adopted-ember-addons/ember-cli-string-helpers",
+  "bugs": "https://github.com/adopted-ember-addons/ember-cli-string-helpers/issues",
+  "repository": "https://github.com/adopted-ember-addons/ember-cli-string-helpers",
+  "license": "MIT",
+  "author": "Rômulo Machado <romulo.machado5@gmail.com>",
+  "contributors": [
+    "Lauren Tan <arr@sugarpirate.com>",
+    "Marten Schilstra <mail@martenschilstra.nl>"
+  ],
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "concurrently 'pnpm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "prepack": "rollup --config",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@ember/string": "^4.0.0",
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/runtime": "^7.25.6",
+    "@babel/plugin-transform-typescript": "^7.25.2",
+    "@embroider/addon-dev": "^5.0.0",
+    "@glint/core": "^1.4.0",
+    "@glint/environment-ember-loose": "^1.4.0",
+    "@glint/environment-ember-template-imports": "^1.4.0",
+    "@glint/template": "^1.4.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.0.1",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.2.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "rollup": "^4.21.3",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.6.2"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.0.0"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "ember-addon": {
+    "app-js": {
+      "./helpers/camelize.js": "./dist/_app_/helpers/camelize.js",
+      "./helpers/capitalize.js": "./dist/_app_/helpers/capitalize.js",
+      "./helpers/classify.js": "./dist/_app_/helpers/classify.js",
+      "./helpers/dasherize.js": "./dist/_app_/helpers/dasherize.js",
+      "./helpers/html-safe.js": "./dist/_app_/helpers/html-safe.js",
+      "./helpers/humanize.js": "./dist/_app_/helpers/humanize.js",
+      "./helpers/lowercase.js": "./dist/_app_/helpers/lowercase.js",
+      "./helpers/titleize.js": "./dist/_app_/helpers/titleize.js",
+      "./helpers/trim.js": "./dist/_app_/helpers/trim.js",
+      "./helpers/truncate.js": "./dist/_app_/helpers/truncate.js",
+      "./helpers/underscore.js": "./dist/_app_/helpers/underscore.js",
+      "./helpers/uppercase.js": "./dist/_app_/helpers/uppercase.js",
+      "./helpers/w.js": "./dist/_app_/helpers/w.js"
+    },
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "version": 2
+  }
+}
